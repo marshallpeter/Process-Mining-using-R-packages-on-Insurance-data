@@ -10,7 +10,24 @@ df %>% count(agent_name) %>% arrange(desc(n))
 df %>% group_by(car_make, car_year) %>% 
   summarise(highest_calim = max(claim_amount))
 
-ggplot(df, aes(timestamp)) + geom_histogram(aes(fill = type_of_policy)) + 
+# plot by policy
+palette <- c("#005b96", "#008080", "#004c4c") 
+
+ggplot(df, aes(timestamp)) + 
+  geom_histogram(aes(fill = type_of_policy)) + 
+  scale_fill_manual(values = palette) +
   theme(panel.background = element_rect(color = 'black', fill = 'white'),
         panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
+        panel.grid.minor = element_blank()) +
+  scale_y_continuous(labels = dollar) + 
+  xlab('') + ylab('') + guides(fill = guide_legend('Type of Policy'))
+
+
+
+
+
+
+
+
+
+
