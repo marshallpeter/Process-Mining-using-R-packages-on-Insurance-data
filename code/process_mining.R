@@ -1,6 +1,7 @@
 # packages 
 library(tidyverse)
 library(lubridate)
+library(scales)
 # data link: https://www.kaggle.com/datasets/carlosalvite/car-insurance-claims-event-log-for-process-mining
 # EDA ---------------------
 df <- Insurance_claims_event_log
@@ -21,13 +22,6 @@ ggplot(df, aes(timestamp)) +
         panel.grid.minor = element_blank()) +
   scale_y_continuous(labels = dollar) + 
   xlab('') + ylab('') + guides(fill = guide_legend('Type of Policy'))
-
-
-
-
-
-
-
 
 
 
